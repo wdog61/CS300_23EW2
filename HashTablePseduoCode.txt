@@ -1,0 +1,174 @@
+
+Public class HashTable
+{
+	Vector<Vector> Table;
+	Int tableSize = 10;
+	Public HashTable()
+    {
+	    Table = Vector<Vector>(tableSize);
+    }
+
+    Public HashTable(int size)
+    {
+	    tableSize = size;
+	    Table = Vector<Vector>(tableSize);
+    }	
+}
+
+//The hashtable should be declared as a static object.  This will be our data store.
+Static HashTable table = new Table()
+
+Public class Course
+{
+	Course()
+
+	Course(vector<string> tokens)
+	{
+		CourseNumber = tokens[0];
+		CourseDescription = tokens[1];
+		For(var I = 2; I < tokens.length;i++)
+			CoursePrerequisites.Add(tokens[i]);
+	}
+
+	String CourseNumber 
+
+	String CourseDescription
+
+	Vector<string> CoursePrerequisites
+
+	Print()
+	{	
+		Cout << CourseNumber << “, “ << CourseDescription;
+		Foreach(var token in tokens)
+			Cout << “, “ << token;
+		Cout << endl;
+	}	
+}
+
+OpenDataFile()
+{
+	Var fileLInes = new Vector<string>()
+    
+    Ask the user to specify the data file’s location.
+	
+    Open the file
+	
+    While you are not at the end of the file
+    {
+		Var line = File.ReadLine;
+		fileLines.Append(line);
+    }
+
+	Execute ParseDataFile(fileLines)
+}
+
+ParseDataFile(Vector<string> fileLInes)
+{
+	Var parsedLines = new HashTable();
+
+	Var validatedCourses = new Vector<Courses>();
+
+    Foreach(var line in fileLines)
+	{
+		Var tokens = Split the string by commas
+	
+    	If(tokens.count >= 2)
+			parsedLines.Add(tokens[0], tokens);
+	
+    }
+	
+	Foreach(var line in parsedLines)
+	{
+		If the line has 2 tokens
+		{
+			validatedCourses.Add(new Course(line.tokens));
+		}
+		Else
+		{
+			Foreach preRequisiteToken (any token after the first two)
+			{
+				If(prerequisiteToken exists in parsedLines)
+				{
+					validatedCourses.Add(new Course(line.tokens));							
+                }
+			}
+		}
+	}
+
+	Foreach(var course in validatedCourses)
+	{
+		Var bucket = MakeHash(course. CourseNumber);
+		Table[bucket].Add(course);
+	}
+} 
+
+Int MakeHash(int id)
+{
+	Return id % table.Size;
+}
+
+PrintAllCourses()
+{
+	Var sortedCourses = new Vector<Courses>
+	Foreach(var row in Table)
+	{
+		Foreach(var course in row)
+		{
+		    If(sortedCourses.Count == 0)
+		    {
+			    sortedCourses.Add(class);
+		    }
+		    else
+		    {
+				For(var I = 0; I < sortedCourses.count; i++)
+				{
+					//If the course is bigger then the selected course
+                    If (course. CourseNumber > sortedCourses[i]. CourseNumber)
+				 	{
+						//insert after the course
+						sortedCourses.Insert(I,course);
+						//leave the small loop to return to the big loop
+						break;
+					}
+				}
+		    }
+        }		
+	} 
+}
+
+PrintCourse(string course)
+{
+	Foreach(var class in Table)
+	{
+		Foreach(var course in class)
+		{	
+			If(course.CourseNumber = course)
+				Course.Print()
+		}
+    }
+}
+
+
+//Entry Point and work loop
+DoWork()
+{
+	While(true)
+    {
+		Display user menu options:
+		1:  Load Data
+		2:  Print Course List
+		3:  Print course
+		4: Exit
+
+		Var userInput = Get user input.
+		Switch(userInput)
+		Case 1: OpenDataFile(); break;
+		Case 2: PrintAllCourses(); break;
+		Case 3: 
+			Var userCourse = Prompt user for course.
+            PrintCourse(userCourse);
+            break
+		Case 4: return; //Exits program
+	}
+}
+
